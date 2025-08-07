@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nayrah - A New Way</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <style>
+        /* STYLE GUIDE:
+          This section controls the global styles for the entire page.
+          - `body`: Sets the default font family, weight, and color for all text.
+          - `h1, h2, ...`: Sets the font weight for all headings to make them bolder.
+          - `a, button`: Sets the default font weight for links and buttons.
+          - `.italic`: Defines the style for any text with the "italic" class.
+          You can change these values to update the look and feel of the site.
+        */
+        body {
+            font-family: 'PT Serif', serif;
+            font-weight: 400; /* Regular 400 for body text */
+            font-size: 1.125rem; /* Increased from default 1rem */
+            background-color: #FDFBF8;
+            color: #2D3748; /* Darker body text for better readability */
+        }
+        
+        /* Titles, Subheadings, Bold Text */
+        h1, h2, h3, h4, h5, h6,
+        .font-semibold, .font-bold, b, strong {
+            font-weight: 600; /* Semibold 600 */
+        }
+
+        /* Standardize text sizes - only for elements without Tailwind classes */
+        h1:not([class*="text-"]) { font-size: 2.5rem; }
+        h2:not([class*="text-"]) { font-size: 2rem; }
+        h3:not([class*="text-"]) { font-size: 1.75rem; }
+        h4:not([class*="text-"]) { font-size: 1.5rem; }
+        h5:not([class*="text-"]) { font-size: 1.25rem; }
+        h6:not([class*="text-"]) { font-size: 1.125rem; }
+        
+        /* Ensure consistent body text size - only for elements without Tailwind classes */
+        p:not([class*="text-"]) { font-size: 1.125rem; }
+
+        /* Links and Buttons keep regular weight */
+        a, button {
+            font-weight: 400; /* Regular 400 */
+        }
+
+        /* Italics */
+        .italic, i, em {
+            font-style: italic;
+            font-weight: 400; /* Regular 400 Italic */
+        }
+
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(253, 251, 248, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid #E0DCD3;
+        }
+        .cta-button {
+            background-color: #047857; /* Updated darker green */
+            color: #FFFFFF;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #065f46; /* A slightly darker shade for hover */
+        }
+        .oooh-baby-regular {
+            font-family: "Oooh Baby", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .pt-serif-regular {
+            font-family: "PT Serif", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .pt-serif-bold {
+            font-family: "PT Serif", serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .pt-serif-regular-italic {
+            font-family: "PT Serif", serif;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .pt-serif-bold-italic {
+            font-family: "PT Serif", serif;
+            font-weight: 700;
+            font-style: italic;
+        }
+        .testimonial-card {
+            flex: 0 0 auto;
+            width: 80%;
+            scroll-snap-align: start;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        @media (min-width: 768px) {
+            .testimonial-card {
+                width: 45%;
+            }
+        }
+        @media (min-width: 1024px) {
+            .testimonial-card {
+                width: 30%;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- 
+      SECTION: Header
+      STYLING: The header is sticky. The background color and blur effect are controlled by the `.sticky-header` class in the <style> block.
+      The logo color is `text-[#047857]`. The link colors and button colors are also customized here.
+    -->
+    <header id="header" class="sticky-header shadow-sm" x-data="{ mobileMenuOpen: false }">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <svg class="h-8 w-8 text-[#047857]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                </svg>
+                <span class="text-2xl italic text-gray-800">
+                    <span class="hidden sm:inline">Nayrah</span>
+                    <span class="sm:hidden">Nayrah</span>
+                </span>
+            </a>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="philosophy.html" class="font-semibold text-gray-700 hover:text-[#047857] transition-colors duration-300">Philosophy</a>
+                <a href="#book-session" class="cta-button font-semibold py-2 px-5 rounded-full shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+                    Book a Session
+                </a>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden flex items-center space-x-4">
+                 <a href="#book-session" class="cta-button font-semibold py-2 px-4 rounded-full text-sm">
+                    Book
+                </a>
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-600 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path :class="{'hidden': mobileMenuOpen, 'inline-flex': !mobileMenuOpen }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        <path :class="{'hidden': !mobileMenuOpen, 'inline-flex': mobileMenuOpen }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu Dropdown -->
+        <div x-show="mobileMenuOpen" x-collapse class="md:hidden bg-white border-t border-gray-200">
+            <a href="index.html" @click="mobileMenuOpen = false" class="block py-3 px-6 text-gray-700 hover:bg-stone-50">Home</a>
+            <a href="philosophy.html" @click="mobileMenuOpen = false" class="block py-3 px-6 text-gray-700 hover:bg-stone-50">Philosophy</a>
+        </div>
+    </header>
+
+    <main>   
+        <!-- 
+          SECTION: Philosophy
+          STYLING: The background is `bg-white`. The subheadings use `text-[#047857]`.
+          The main text color is inherited from the `body` tag.
+        -->
+        <section id="philosophy" class="py-16 bg-white">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl lg:text-5xl text-gray-800 leading-tight">
+                        A blank canvas for your feelings so <span class="italic">you</span> can connect the dots.
+                    </h2>
+                </div>
+
+                <div class="space-y-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-[#047857] mb-4">Why is therapy important?</h3>
+                        <p class="leading-relaxed">
+                            Therapy is important - it works in similar ways as taking precautions to avoid long term illness or distress. I believe it is precautionary measures to help cope with life in this technologically advanced world where there is not much in our control, making us feel completely lost. It also helps on a weekly basis to get your thoughts out, rejuvenate your mind and continue with a fresher outlook.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold text-[#047857] mb-4">What is your approach to therapy?</h3>
+                        <p class="leading-relaxed">
+                            I believe in cognitive restructuring in a way where I want to help replace the negative thoughts into positive ones, so one feels more in control of their own journey. I also believe in letting you take the first step into the whole therapy process, so you know you are the one holding the steering and I will help guide the best path possible.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold text-[#047857] mb-4">What is unique about it?</h3>
+                        <p class="leading-relaxed">
+                            I believe in providing a space where you can be vulnerable about any aspect of life because I believe everything contributes to something. This is more an exploration space for you to just map out your thoughts, actions without any judgement and connect the dots, find a pattern and help figure out a path that works for you.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold text-[#047857] mb-4">How can you help people?</h3>
+                        <p class="leading-relaxed">
+                            Growing up, I have seen countless cases of people going through an emotional turmoil. I realised there was such a huge gap between children who are able to talk in supportive spaces and children who had to grow up on their own. I am a strong believer in childhood burdens/trauma unfolding and distressing in adulthood is one of the major reasons why some patterns of individuals are so rigid to changes, proving to be harmful. But these patterns can be replaced with healthier outlooks, behaviors, thought processes. I personally have worked with and assisted individuals going through issues that are deeply rooted in their upbringing, culture, environmental conditions and also peers they have been with. I believe that talking about the issues from every angle gives up depth and clarity and also a sense of relief that at least it is out there. You’d realise you are really not the only one.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 
+      SECTION: Footer
+      STYLING: The background color is `bg-[#3D405B]`. The text color is `text-white/80` (white with 80% opacity).
+    -->
+    <footer class="bg-[#3D405B] text-white/80">
+        <div class="container mx-auto px-6 py-6 text-center">
+            <p>&copy; 2024 Nayrah Health. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
