@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information - Nayrah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <style>
+        body {
+            font-family: 'PT Serif', serif;
+            font-weight: 400;
+            font-size: 1.125rem;
+            background-color: #FDFBF8;
+            color: #2D3748;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        h1, h2, h3, h4, h5, h6,
+        .font-semibold, .font-bold, b, strong {
+            font-weight: 700;
+        }
+
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(253, 251, 248, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(224, 220, 211, 0.6);
+        }
+
+        .cta-button {
+            background-color: #047857;
+            color: #FFFFFF;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(4, 120, 87, 0.25);
+        }
+
+        .cta-button:hover {
+            background-color: #065f46;
+            box-shadow: 0 4px 12px rgba(4, 120, 87, 0.35);
+            transform: translateY(-1px);
+        }
+
+        .info-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(224, 220, 211, 0.8);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            border-left: 3px solid #047857;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #047857;
+            font-weight: 600;
+        }
+
+        .divider {
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, #047857, rgba(4, 120, 87, 0.3));
+        }
+
+        .sticky-back-button {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(253, 251, 248, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(224, 220, 211, 0.6);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Sticky Back Button -->
+    <div class="sticky-back-button py-4">
+        <div class="container mx-auto px-6 lg:px-8">
+            <a href="index.html" class="inline-flex items-center text-[#047857] hover:text-[#065f46] transition-colors font-semibold">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
+                </svg>
+                Back to Home
+            </a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Page Header -->
+        <section class="py-20 md:py-24 bg-stone-200/70">
+            <div class="container mx-auto px-6 lg:px-8 text-center max-w-4xl">
+                <p class="section-label mb-4">About Our Practice</p>
+                <h1 class="text-4xl lg:text-5xl text-gray-800 leading-tight mb-6">
+                    A blank canvas for your feelings so <span class="italic">you</span> can connect the dots.
+                </h1>
+                <div class="divider mx-auto"></div>
+            </div>
+        </section>
+
+        <!-- Information Content -->
+        <section id="philosophy" class="py-20 md:py-24 bg-white">
+            <div class="container mx-auto px-6 lg:px-8 max-w-4xl">
+                <div class="space-y-8">
+                    <div class="info-card p-8 rounded-lg">
+                        <h3 class="text-2xl font-semibold text-[#047857] mb-4">Why is therapy important?</h3>
+                        <p class="leading-relaxed text-gray-600">
+                            Therapy is important – it works in similar ways as taking precautions to avoid long term illness or distress. We believe it is precautionary measures to help cope with life in this technologically advanced world where there is not much in our control, making us feel completely lost. It also helps on a weekly basis to get your thoughts out, rejuvenate your mind and continue with a fresher outlook.
+                        </p>
+                    </div>
+                    <div class="info-card p-8 rounded-lg">
+                        <h3 class="text-2xl font-semibold text-[#047857] mb-4">What is our approach to therapy?</h3>
+                        <p class="leading-relaxed text-gray-600">
+                            We believe in cognitive restructuring in a way where we want to help replace the negative thoughts into positive ones, so one feels more in control of their own journey. We also believe in letting you take the first step into the whole therapy process, so you know you are the one holding the steering and we will help guide the best path possible.
+                        </p>
+                    </div>
+                    <div class="info-card p-8 rounded-lg">
+                        <h3 class="text-2xl font-semibold text-[#047857] mb-4">What is unique about it?</h3>
+                        <p class="leading-relaxed text-gray-600">
+                            We believe in providing a space where you can be vulnerable about any aspect of life because we believe everything contributes to something. This is more an exploration space for you to just map out your thoughts, actions without any judgement and connect the dots, find a pattern and help figure out a path that works for you.
+                        </p>
+                    </div>
+                    <div class="info-card p-8 rounded-lg">
+                        <h3 class="text-2xl font-semibold text-[#047857] mb-4">How can we help people?</h3>
+                        <p class="leading-relaxed text-gray-600">
+                            Growing up, we have seen countless cases of people going through an emotional turmoil. We realised there was such a huge gap between children who are able to talk in supportive spaces and children who had to grow up on their own. We are strong believers in childhood burdens/trauma unfolding and distressing in adulthood is one of the major reasons why some patterns of individuals are so rigid to changes, proving to be harmful. But these patterns can be replaced with healthier outlooks, behaviors, thought processes. We personally have worked with and assisted individuals going through issues that are deeply rooted in their upbringing, culture, environmental conditions and also peers they have been with. We believe that talking about the issues from every angle gives us depth and clarity and also a sense of relief that at least it is out there. You'd realise you are really not the only one.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#3D405B] text-white/80">
+        <div class="container mx-auto px-6 lg:px-8 py-10">
+            <div class="flex justify-center items-center">
+                <p class="text-sm text-white/60">&copy; 2024 Nayrah Health. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

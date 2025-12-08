@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priyadarshini Mugunthan - Nayrah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <style>
+        body {
+            font-family: 'PT Serif', serif;
+            font-weight: 400;
+            font-size: 1.125rem;
+            background-color: #FDFBF8;
+            color: #2D3748;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4, h5, h6, .font-semibold, .font-bold, b, strong { font-weight: 700; }
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(253, 251, 248, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(224, 220, 211, 0.6);
+        }
+        .cta-button {
+            background-color: #047857;
+            color: #FFFFFF;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(4, 120, 87, 0.25);
+        }
+        .cta-button:hover {
+            background-color: #065f46;
+            box-shadow: 0 4px 12px rgba(4, 120, 87, 0.35);
+            transform: translateY(-1px);
+        }
+        .quote-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(224, 220, 211, 0.8);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #047857;
+            font-weight: 600;
+        }
+        .divider {
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, #047857, rgba(4, 120, 87, 0.3));
+        }
+
+        .sticky-back-button {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(253, 251, 248, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(224, 220, 211, 0.6);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Sticky Back Button -->
+    <div class="sticky-back-button py-4">
+        <div class="container mx-auto px-6 lg:px-8">
+            <a href="index.html" class="inline-flex items-center text-[#047857] hover:text-[#065f46] transition-colors font-semibold">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
+                </svg>
+                Back to Home
+            </a>
+        </div>
+    </div>
+
+    <main>
+        <section class="py-16 md:py-20 bg-[#FDFBF8]">
+            <div class="container mx-auto px-6 lg:px-8 max-w-5xl">
+                <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div class="space-y-6">
+                        <div>
+                            <p class="section-label mb-2">Founder & Therapist</p>
+                            <h1 class="text-4xl md:text-5xl text-gray-800 mb-2">Priyadarshini Mugunthan</h1>
+                            <p class="text-lg text-[#047857] font-semibold">Trainee Clinical Psychologist, RCI</p>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="space-y-4 text-gray-600 leading-relaxed">
+                            <p>Searching for oneself is a journey for a lifetime — has been something I have always believed in. I grew up in a very compassionate, loving, understanding and free-will environment. I understood the value of such an environment when I could see how much it contributes to shaping an individual towards their potential, which is endless. I value a space which is free of judgement, expectations and pretense. A space for raw emotions and to look inwards, untangle the complexities that are holding you back.</p>
+                            <p>I indulged in psychotherapeutic supportive techniques to help people build perspective, provide them the compassionate and understanding environment to help you achieve 'nayrah' — a new path of an already taken journey.</p>
+                            <p class="italic text-gray-700">Every spiral begins as a single point, a quiet origin that unfolds into motion. The act of unravelling and returning and starting again by creating a circle that both concludes and continues infinitely, has become a guiding philosophy in my journey.</p>
+                        </div>
+                    </div>
+                    <div class="quote-card p-8 rounded-xl">
+                        <div class="flex flex-col items-center text-center">
+                            <img src="priya.jpg" alt="Photo of Priyadarshini Mugunthan" class="w-56 h-56 md:w-64 md:h-64 rounded-full mb-6 object-cover border-4 border-white shadow-lg">
+                            <svg class="w-8 h-8 text-[#047857] opacity-20 mb-3" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                            <p class="italic text-xl text-gray-600 leading-relaxed">"I am a passionate individual who has believed in just opening up, talking too much about myself, my problems. In that journey I found peace."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 md:py-24 bg-[#047857] relative overflow-hidden">
+            <div class="absolute inset-0 opacity-[0.07]">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+                <div class="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
+            </div>
+            <div class="container mx-auto px-6 lg:px-8 text-center relative z-10">
+                <h2 class="text-4xl md:text-5xl text-white mb-5">Ready to Start Your Journey?</h2>
+                <p class="text-white/85 mb-10 max-w-xl mx-auto text-lg leading-relaxed">Let's start a conversation about what you're going through.</p>
+                <a href="index.html#book-session" class="inline-block bg-white text-[#047857] font-bold py-4 px-10 rounded-full shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 text-lg">Book a Session</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#3D405B] text-white/80">
+        <div class="container mx-auto px-6 lg:px-8 py-10">
+            <div class="flex justify-center items-center">
+                <p class="text-sm text-white/60">&copy; 2024 Nayrah Health. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
