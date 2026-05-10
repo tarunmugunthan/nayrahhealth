@@ -3,480 +3,633 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nayrah - A Therapy Service</title>
+    <title>Nayrah — a therapy service</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
     <style>
+        :root {
+            --ink: #1F2A28;
+            --ink-soft: #4A554F;
+            --ink-mute: #7A8479;
+            --cream: #FBF6EC;
+            --cream-2: #F4ECDC;
+            --paper: #FFFCF5;
+            --green: #047857;
+            --green-deep: #023A2A;
+            --green-soft: #DDEDE2;
+            --green-tint: #EEF6EF;
+            --coral: #E89A7C;
+            --coral-soft: #F4D5C2;
+            --butter: #F1D88B;
+            --blush: #E8C4C0;
+        }
+
+        html, body { background-color: var(--cream); }
         body {
-            font-family: 'PT Serif', serif;
+            font-family: 'Manrope', system-ui, sans-serif;
             font-weight: 400;
-            font-size: 1.125rem;
-            background-color: #FDFBF8;
-            color: #2D3748;
+            font-size: 1.0625rem;
+            line-height: 1.6;
+            color: var(--ink);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        
-        h1, h2, h3, h4, h5, h6,
-        .font-semibold, .font-bold, b, strong {
-            font-weight: 700;
-        }
 
-        .sticky-header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background-color: rgba(253, 251, 248, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(224, 220, 211, 0.6);
-        }
+        .display { font-family: 'Manrope', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.02em; line-height: 1.18; }
+        .display-i { font-family: 'Manrope', system-ui, sans-serif; font-weight: 500; letter-spacing: -0.015em; color: var(--green-deep); }
+        h1.display, h2.display, h3.display { line-height: 1.18; }
 
-        .cta-button {
-            background-color: #047857;
-            color: #FFFFFF;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 2px 8px rgba(4, 120, 87, 0.25);
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--green);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 999px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset, 0 8px 24px -10px rgba(4, 120, 87, 0.45);
         }
-
-        .cta-button:hover {
-            background-color: #065f46;
-            box-shadow: 0 4px 12px rgba(4, 120, 87, 0.35);
+        .btn-primary:hover {
+            background-color: var(--green-deep);
             transform: translateY(-1px);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset, 0 12px 28px -10px rgba(4, 120, 87, 0.55);
         }
+        .btn-primary .arrow { transition: transform 0.25s ease; }
+        .btn-primary:hover .arrow { transform: translateX(3px); }
 
-        .hero-card {
-            background: rgb(245, 245, 244);
-            box-shadow: 
-                0 25px 50px -12px rgba(0, 0, 0, 0.12),
-                0 0 0 1px rgba(255, 255, 255, 0.8);
+        .btn-ghost {
+            color: var(--ink);
+            background: transparent;
+            border: 1px solid rgba(31, 42, 40, 0.18);
+            padding: 0.75rem 1.5rem;
+            border-radius: 999px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            transition: all 0.25s ease;
         }
+        .btn-ghost:hover { background: rgba(31, 42, 40, 0.04); border-color: rgba(31, 42, 40, 0.28); }
 
-        .team-card {
-            background: #FFFFFF;
-            border: 1px solid rgba(224, 220, 211, 0.8);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-        }
-
-        .team-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.12);
-            border-color: rgba(4, 120, 87, 0.3);
-        }
-
-        .service-card {
-            background: #FFFFFF;
-            border: 1px solid rgba(224, 220, 211, 0.8);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-            overflow: hidden;
-        }
-
-        .service-card:hover {
-            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.1);
-            border-color: rgba(4, 120, 87, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .service-card:hover .service-image {
-            transform: scale(1.05);
-        }
-
-        .service-image {
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .testimonial-card {
-            flex: 0 0 auto;
-            width: 85%;
-            background: #FFFFFF;
-            border: 1px solid rgba(224, 220, 211, 0.8);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-        }
-
-        @media (min-width: 768px) {
-            .testimonial-card { width: 45%; }
-        }
-
-        @media (min-width: 1024px) {
-            .testimonial-card { width: 32%; }
-        }
-
-        .testimonials-container {
-            overflow: hidden;
+        /* Hero — full-bleed background image */
+        .hero-wrap {
             position: relative;
-        }
-
-        .testimonials-track {
+            overflow: hidden;
+            background-image: url('hero.png');
+            background-size: cover;
+            background-position: center;
+            min-height: 92vh;
             display: flex;
-            gap: 1.5rem;
-            animation: scroll-testimonials 30s linear infinite;
+            align-items: center;
         }
-
-        .testimonials-track:hover {
-            animation-play-state: paused;
+        .hero-wrap::before {
+            content: "";
+            position: absolute; inset: 0;
+            background:
+                linear-gradient(180deg, rgba(2, 58, 42, 0.45) 0%, rgba(2, 58, 42, 0.55) 60%, rgba(31, 42, 40, 0.7) 100%);
+            z-index: 1;
         }
+        .hero-wrap > * { position: relative; z-index: 2; }
 
-        @keyframes scroll-testimonials {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        .section-label {
-            font-size: 0.75rem;
-            letter-spacing: 0.15em;
+        /* Section labels */
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
             text-transform: uppercase;
-            color: #047857;
-            font-weight: 600;
+            color: var(--green);
+        }
+        .eyebrow::before {
+            content: ""; width: 22px; height: 1px; background: var(--green);
         }
 
-        .divider {
-            width: 50px;
-            height: 2px;
-            background: linear-gradient(90deg, #047857, rgba(4, 120, 87, 0.3));
+        /* Cards */
+        .card {
+            background: var(--paper);
+            border-radius: 24px;
+            border: 1px solid rgba(31, 42, 40, 0.06);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 1px 2px rgba(31, 42, 40, 0.04);
+            transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 18px 40px -18px rgba(31, 42, 40, 0.18);
+            border-color: rgba(4, 120, 87, 0.2);
         }
 
-        .quote-icon {
-            color: #047857;
-            opacity: 0.15;
+        .service-img-wrap {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            background: var(--cream-2);
+        }
+        .service-img-wrap::after {
+            content: ""; position: absolute; inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(2, 58, 42, 0.25) 100%);
+            pointer-events: none;
+        }
+        .service-img-wrap img { transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1); }
+        .card:hover .service-img-wrap img { transform: scale(1.05); }
+
+        /* Service category color variants */
+        .cat-talk    .cat-tag { background: var(--green-tint); color: var(--green-deep); }
+        .cat-career  .cat-tag { background: var(--coral-soft); color: #8E4426; }
+        .cat-psyched .cat-tag { background: #F0E5C7; color: #6E5916; }
+        .cat-mind    .cat-tag { background: #E2E9DD; color: #3A4A39; }
+
+        .cat-tag {
+            display: inline-flex; align-items: center;
+            font-size: 0.72rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+            padding: 0.3rem 0.7rem; border-radius: 999px;
         }
 
-        .gray-button {
-            background-color: #6B7280;
-            color: #FFFFFF;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 2px 8px rgba(107, 114, 128, 0.25);
+        /* Marquee */
+        .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%); }
+        .marquee-track { display: flex; gap: 1.25rem; animation: scroll 50s linear infinite; width: max-content; }
+        .marquee:hover .marquee-track { animation-play-state: paused; }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
-        .gray-button:hover {
-            background-color: #4B5563;
-            box-shadow: 0 4px 12px rgba(107, 114, 128, 0.35);
-            transform: translateY(-1px);
+        .testimonial {
+            flex: 0 0 auto;
+            width: 360px;
+            background: var(--paper);
+            border-radius: 22px;
+            padding: 1.75rem;
+            border: 1px solid rgba(31, 42, 40, 0.05);
+            box-shadow: 0 1px 2px rgba(31, 42, 40, 0.04);
+        }
+        .testimonial.tilt-l { transform: rotate(-0.6deg); }
+        .testimonial.tilt-r { transform: rotate(0.6deg); }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--paper);
+            border-radius: 18px;
+            border: 1px solid rgba(31, 42, 40, 0.06);
+            transition: border-color 0.25s ease;
+        }
+        .faq-item:hover { border-color: rgba(4, 120, 87, 0.25); }
+        .faq-item[data-open="true"] { border-color: rgba(4, 120, 87, 0.35); background: var(--green-tint); }
+
+        .plus-icon { width: 24px; height: 24px; position: relative; flex-shrink: 0; }
+        .plus-icon::before, .plus-icon::after {
+            content: ""; position: absolute; left: 50%; top: 50%;
+            width: 14px; height: 1.6px;
+            background: var(--green);
+            transform: translate(-50%, -50%);
+            transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.3, 1);
+        }
+        .plus-icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+        .faq-item[data-open="true"] .plus-icon::after { transform: translate(-50%, -50%) rotate(0); }
+
+        /* CTA */
+        .cta-block {
+            background: var(--green-deep);
+            background-image:
+                radial-gradient(circle at 12% 20%, rgba(232, 154, 124, 0.35), transparent 45%),
+                radial-gradient(circle at 92% 85%, rgba(241, 216, 139, 0.25), transparent 45%);
+            border-radius: 36px;
         }
 
-        .sticky-back-button {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background-color: rgba(253, 251, 248, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(224, 220, 211, 0.6);
+        /* Hand-drawn underline */
+        .underline-coral {
+            background-image: linear-gradient(transparent 60%, rgba(232, 154, 124, 0.5) 60%);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            padding: 0 0.1em;
+        }
+
+        /* Blob */
+        .blob {
+            position: absolute; border-radius: 999px; filter: blur(40px);
+            pointer-events: none; opacity: 0.7;
+        }
+        .blob-green  { background: var(--green); opacity: 0.18; }
+
+        ::selection { background: var(--coral-soft); color: var(--ink); }
+
+        @media (max-width: 768px) {
+            .testimonial { width: 280px; }
         }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="relative min-h-[85vh] flex items-center justify-center bg-cover bg-center" style="background-image: url('hero.png');">
-            <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/40"></div>
-            
-            <!-- Floating Card -->
-            <div class="hero-card relative z-10 px-14 py-16 md:px-20 md:py-20 rounded-lg text-center max-w-xl mx-6">
-                <img src="logo.png" alt="Nayrah" class="h-16 md:h-20 w-auto mx-auto mb-6">
-                <h1 class="text-5xl md:text-6xl lg:text-7xl italic text-gray-800 mb-5">Nayrah</h1>
-                <div class="divider mx-auto mb-5"></div>
-                <p class="text-lg text-gray-500 tracking-widest uppercase mb-8">a therapy service</p>
-                <a href="https://calendly.com/nayrahhealth/new-meeting?month=2025-12" target="_blank" class="cta-button font-semibold py-3 px-8 rounded-full shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 inline-block">
-                    Book a Session
+<!-- TOP: hero w/ embedded nav -->
+<section class="hero-wrap">
+    <!-- Embedded transparent nav -->
+    <nav class="absolute top-0 left-0 right-0 z-10">
+        <div class="container mx-auto px-6 lg:px-10 max-w-7xl">
+            <div class="flex items-center justify-between h-[72px] border-b border-white/10">
+                <a href="index.html" class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-full bg-white/15 backdrop-blur flex items-center justify-center text-white">
+                        <span class="display text-lg leading-none">N</span>
+                    </div>
+                    <div class="leading-tight">
+                        <div class="display text-2xl text-white">Nayrah</div>
+                        <div class="text-[10px] tracking-[0.18em] uppercase text-white/60 -mt-0.5">a therapy service</div>
+                    </div>
                 </a>
-            </div>
-        </section>
 
-        <!-- Intro Section -->
-        <section class="py-20 md:py-24 bg-stone-200/70">
-            <div class="container mx-auto px-6 lg:px-8 text-center max-w-4xl">
-                <p class="section-label mb-4">Nayrah's Philosophy</p>
-                <div class="space-y-6 text-lg md:text-xl leading-relaxed text-gray-700 mb-8">
-                    <p>At Nayrah, therapy is not just about labels or diagnoses; it is about connection, clarity, growth, and self-understanding. This is your space; you decide the pace, the direction, the dots, the boundaries, the picture, and also the colours you pick. We are going to walk beside you, making sure it is not a spiral but a circle, having a definitive end while also being infinitely open to grow, heal, and explore.</p>
-                    <p>We believe that healing's origin is not when someone tells you what to do; it begins when you are gently guided to find your own way. Hence, making it a lifetime journey with purpose and fulfillment.</p>
+                <div class="hidden md:flex items-center gap-1" style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);">
+                    <a href="#services" class="px-4 py-2 text-[15px] font-medium text-white hover:text-[var(--butter)] transition-colors">services</a>
+                    <a href="team.html" class="px-4 py-2 text-[15px] font-medium text-white hover:text-[var(--butter)] transition-colors">therapists</a>
+                    <a href="information.html" class="px-4 py-2 text-[15px] font-medium text-white hover:text-[var(--butter)] transition-colors">our approach</a>
+                    <a href="#faq" class="px-4 py-2 text-[15px] font-medium text-white hover:text-[var(--butter)] transition-colors">faqs</a>
                 </div>
-                <a href="information.html" class="gray-button font-semibold py-3 px-8 rounded-full shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 inline-block">
-                    Read More
+
+                <a href="https://calendly.com/nayrahhealth/new-meeting?month=2025-12" target="_blank" class="inline-flex items-center gap-2 bg-white text-[var(--green-deep)] px-5 py-2.5 rounded-full text-sm font-medium hover:bg-[var(--butter)] transition-colors">
+                    Book a session
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </a>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section class="py-20 md:py-24 bg-[#FDFBF8]">
-            <div class="container mx-auto px-6 lg:px-8 max-w-6xl">
-                <div class="text-center mb-14">
-                    <p class="section-label mb-3">What We Offer</p>
-                    <h2 class="text-4xl md:text-5xl text-gray-800">Services</h2>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Service 1 -->
-                    <div class="service-card rounded-xl">
-                        <div class="aspect-[16/9] overflow-hidden bg-stone-100">
-                            <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=800&auto=format&fit=crop" alt="Talk Therapy" class="service-image w-full h-full object-cover">
-                        </div>
-                        <div class="p-7">
-                            <h3 class="text-xl text-[#047857] mb-3 font-bold">1:1 Talk Therapy & Mindfulness Sessions</h3>
-                            <p class="text-gray-600 leading-relaxed">Personal sessions to help you manage stress, anxiety, and emotions through self-reflection, mindfulness, and evidence-based techniques.</p>
-                        </div>
-                    </div>
-
-                    <!-- Service 2 -->
-                    <div class="service-card rounded-xl">
-                        <div class="aspect-[16/9] overflow-hidden bg-stone-100">
-                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800&auto=format&fit=crop" alt="Career Counselling" class="service-image w-full h-full object-cover">
-                        </div>
-                        <div class="p-7">
-                            <h3 class="text-xl text-[#047857] mb-3 font-bold">Career Counselling & Student Guidance</h3>
-                            <p class="text-gray-600 leading-relaxed">Psychology-based sessions to explore your strengths, gain clarity, and build confidence in your academic or career path.</p>
-                        </div>
-                    </div>
-
-                    <!-- Service 3 -->
-                    <div class="service-card rounded-xl">
-                        <div class="aspect-[16/9] overflow-hidden bg-stone-100">
-                            <img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?q=80&w=800&auto=format&fit=crop" alt="Psychoeducation" class="service-image w-full h-full object-cover">
-                        </div>
-                        <div class="p-7">
-                            <h3 class="text-xl text-[#047857] mb-3 font-bold">Psychoeducation Sessions</h3>
-                            <p class="text-gray-600 leading-relaxed">For anyone curious about mental health — learn simple tools to understand your thoughts, emotions, and coping patterns better.</p>
-                        </div>
-                    </div>
-
-                    <!-- Service 4 -->
-                    <div class="service-card rounded-xl">
-                        <div class="aspect-[16/9] overflow-hidden bg-stone-100">
-                            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800&auto=format&fit=crop" alt="Mindfulness" class="service-image w-full h-full object-cover">
-                        </div>
-                        <div class="p-7">
-                            <h3 class="text-xl text-[#047857] mb-3 font-bold">Mindfulness & Self-Compassion Practice</h3>
-                            <p class="text-gray-600 leading-relaxed">Guided sessions to help you slow down, reconnect with yourself, and build calmness and balance in everyday life.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- The Team Section -->
-        <section class="py-20 md:py-24 bg-stone-100/50">
-            <div class="container mx-auto px-6 lg:px-8 max-w-5xl">
-                <div class="text-center mb-14">
-                    <p class="section-label mb-3">Meet Your Therapists</p>
-                    <h2 class="text-4xl md:text-5xl text-gray-800">The Team</h2>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8 lg:gap-10">
-                    <!-- Founder 2 -->
-                    <a href="profile_anupriya.html" class="team-card rounded-xl overflow-hidden block group">
-                        <div class="aspect-[4/3] overflow-hidden bg-stone-100">
-                            <img src="anupriya.jpg" alt="Anupriya Toshniwal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        </div>
-                        <div class="p-7">
-                            <h3 class="text-2xl text-gray-800 mb-1 group-hover:text-[#047857] transition-colors">Anupriya Toshniwal</h3>
-                            <p class="text-[#047857] text-sm font-semibold mb-4">MA Psychology Clinical</p>
-                            <p class="text-gray-600 leading-relaxed">I've always believed that everyone deserves a space of their own — a place where they can be fully themselves, speak freely, and feel seen without judgment. I offer talk therapy rooted in empathy and acceptance.</p>
-                        </div>
-                    </a>
-                    <!-- Founder 1 -->
-                    <a href="profile_priya.html" class="team-card rounded-xl overflow-hidden block group">
-                        <div class="aspect-[4/3] overflow-hidden bg-stone-100">
-                            <img src="priya.jpg" alt="Priyadarshini Mugunthan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        </div>
-                        <div class="p-7">
-                            <h3 class="text-2xl text-gray-800 mb-1 group-hover:text-[#047857] transition-colors">Priyadarshini Mugunthan</h3>
-                            <p class="text-[#047857] text-sm font-semibold mb-4">Trainee Clinical Psychologist, RCI</p>
-                            <p class="text-gray-600 leading-relaxed">Searching for oneself is a journey for a lifetime. I value a space which is free of judgement, expectations and pretense. A space for raw emotions and to look inwards, untangle the complexities that are holding you back.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Call to Action -->
-        <section id="book-session" class="py-24 md:py-28 bg-[#047857] relative overflow-hidden">
-            <div class="absolute inset-0 opacity-[0.07]">
-                <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
-                <div class="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
-            </div>
-            <div class="container mx-auto px-6 lg:px-8 text-center relative z-10">
-                <h2 class="text-4xl md:text-5xl text-white mb-5">Ready to Start Your Journey?</h2>
-                <p class="text-white/85 mb-10 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">Take the first step towards a more peaceful and fulfilling life. Your story deserves to be heard.</p>
-                <a href="https://calendly.com/nayrahhealth/new-meeting?month=2025-12" target="_blank" class="inline-block bg-white text-[#047857] font-bold py-4 px-10 rounded-full shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 text-lg">
-                    Book a Session
-                </a>
-            </div>
-        </section>
-
-        <!-- Testimonials -->
-        <section class="py-20 md:py-24 bg-stone-200/70">
-            <div class="container mx-auto">
-                <div class="text-center mb-14 px-6">
-                    <p class="section-label mb-3">Kind Words From Our Clients</p>
-                    <h2 class="text-4xl md:text-5xl text-gray-800">Testimonials</h2>
-                </div>
-                
-                <div class="testimonials-container px-6 lg:px-8">
-                    <div class="testimonials-track">
-                        <!-- First set of 5 cards -->
-                        <div class="testimonial-card p-8 rounded-xl text-center flex flex-col justify-between">
-                            <svg class="quote-icon w-10 h-10 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="italic text-gray-600 mb-6 text-lg leading-relaxed">"Working with the team was life-changing. I finally felt heard and understood without judgment. Their guidance helped me navigate a really difficult period in my life."</p>
-                            <p class="font-semibold text-gray-800 text-base">— A.K.</p>
-                            <p class="text-sm text-gray-500 mt-1">28, Software Engineer</p>
-                        </div>
-                        <div class="testimonial-card p-8 rounded-xl text-center flex flex-col justify-between">
-                            <svg class="quote-icon w-10 h-10 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="italic text-gray-600 mb-6 text-lg leading-relaxed">"The space created here is so warm and safe. I was hesitant about therapy, but it felt like a conversation with a trusted friend who has the tools to help."</p>
-                            <p class="font-semibold text-gray-800 text-base">— S.R.</p>
-                            <p class="text-sm text-gray-500 mt-1">32, Teacher</p>
-                        </div>
-                        <div class="testimonial-card p-8 rounded-xl text-center flex flex-col justify-between">
-                            <svg class="quote-icon w-10 h-10 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="italic text-gray-600 mb-6 text-lg leading-relaxed">"I've learned so much about myself and my patterns. The coping strategies I've developed in our sessions have made a real difference in my daily life."</p>
-                            <p class="font-semibold text-gray-800 text-base">— M.L.</p>
-                            <p class="text-sm text-gray-500 mt-1">25, Graduate Student</p>
-                        </div>
-                        <div class="testimonial-card p-8 rounded-xl text-center flex flex-col justify-between">
-                            <svg class="quote-icon w-10 h-10 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="italic text-gray-600 mb-6 text-lg leading-relaxed">"The approach is gentle yet powerful. They helped me connect the dots from my past to my present, which was incredibly enlightening."</p>
-                            <p class="font-semibold text-gray-800 text-base">— D.P.</p>
-                            <p class="text-sm text-gray-500 mt-1">35, Marketing Manager</p>
-                        </div>
-                        <div class="testimonial-card p-8 rounded-xl text-center flex flex-col justify-between">
-                            <svg class="quote-icon w-10 h-10 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="italic text-gray-600 mb-6 text-lg leading-relaxed">"This therapy service has been a beacon of hope. The compassionate guidance and practical tools have transformed how I handle stress and relationships."</p>
-                            <p class="font-semibold text-gray-800 text-base">— R.T.</p>
-                            <p class="text-sm text-gray-500 mt-1">29, Nurse</p>
-                        </div>
-                        <!-- Duplicate set for seamless loop -->
-                        <div class="testimonial-card p-8 rounded-xl text-center flex flex-col justify-between">
-                            <svg class="quote-icon w-10 h-10 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="italic text-gray-600 mb-6 text-lg leading-relaxed">"Working with the team was life-changing. I finally felt heard and understood without judgment. Their guidance helped me navigate a really difficult period in my life."</p>
-                            <p class="font-semibold text-gray-800 text-base">— A.K.</p>
-                            <p class="text-sm text-gray-500 mt-1">28, Software Engineer</p>
-                        </div>
-                        <div class="testimonial-card p-8 rounded-xl text-center flex flex-col justify-between">
-                            <svg class="quote-icon w-10 h-10 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="italic text-gray-600 mb-6 text-lg leading-relaxed">"The space created here is so warm and safe. I was hesitant about therapy, but it felt like a conversation with a trusted friend who has the tools to help."</p>
-                            <p class="font-semibold text-gray-800 text-base">— S.R.</p>
-                            <p class="text-sm text-gray-500 mt-1">32, Teacher</p>
-                        </div>
-                        <div class="testimonial-card p-8 rounded-xl text-center flex flex-col justify-between">
-                            <svg class="quote-icon w-10 h-10 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="italic text-gray-600 mb-6 text-lg leading-relaxed">"I've learned so much about myself and my patterns. The coping strategies I've developed in our sessions have made a real difference in my daily life."</p>
-                            <p class="font-semibold text-gray-800 text-base">— M.L.</p>
-                            <p class="text-sm text-gray-500 mt-1">25, Graduate Student</p>
-                        </div>
-                        <div class="testimonial-card p-8 rounded-xl text-center flex flex-col justify-between">
-                            <svg class="quote-icon w-10 h-10 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="italic text-gray-600 mb-6 text-lg leading-relaxed">"The approach is gentle yet powerful. They helped me connect the dots from my past to my present, which was incredibly enlightening."</p>
-                            <p class="font-semibold text-gray-800 text-base">— D.P.</p>
-                            <p class="text-sm text-gray-500 mt-1">35, Marketing Manager</p>
-                        </div>
-                        <div class="testimonial-card p-8 rounded-xl text-center flex flex-col justify-between">
-                            <svg class="quote-icon w-10 h-10 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="italic text-gray-600 mb-6 text-lg leading-relaxed">"This therapy service has been a beacon of hope. The compassionate guidance and practical tools have transformed how I handle stress and relationships."</p>
-                            <p class="font-semibold text-gray-800 text-base">— R.T.</p>
-                            <p class="text-sm text-gray-500 mt-1">29, Nurse</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQs -->
-        <section class="py-20 md:py-24 bg-white" x-data="{ openFaq: null }">
-            <div class="container mx-auto px-6 lg:px-8 max-w-3xl">
-                <div class="text-center mb-14">
-                    <p class="section-label mb-3">Got Questions?</p>
-                    <h2 class="text-4xl md:text-5xl text-gray-800">FAQs</h2>
-                </div>
-                
-                <div class="space-y-4">
-                    <div class="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
-                        <button @click="openFaq = openFaq === 1 ? null : 1" class="w-full text-left p-6 flex justify-between items-start focus:outline-none hover:bg-stone-50/50 transition-colors">
-                            <span class="font-semibold text-gray-700 pr-4">How to know if someone is the right therapist for me?</span>
-                            <svg class="w-5 h-5 text-[#047857] transform transition-transform flex-shrink-0 mt-0.5" :class="{ 'rotate-180': openFaq === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-                        <div x-show="openFaq === 1" x-collapse class="px-6 pb-6">
-                            <p class="text-gray-600 leading-relaxed">Finding the right therapist is about connection and comfort. We offer a brief introductory call to see if we're a good fit. It's important you feel safe and understood. Trust your intuition during this initial conversation.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
-                        <button @click="openFaq = openFaq === 2 ? null : 2" class="w-full text-left p-6 flex justify-between items-start focus:outline-none hover:bg-stone-50/50 transition-colors">
-                            <span class="font-semibold text-gray-700 pr-4">How do I schedule an appointment?</span>
-                            <svg class="w-5 h-5 text-[#047857] transform transition-transform flex-shrink-0 mt-0.5" :class="{ 'rotate-180': openFaq === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-                        <div x-show="openFaq === 2" x-collapse class="px-6 pb-6">
-                            <p class="text-gray-600 leading-relaxed">You can schedule an appointment by clicking the "Book a Session" button, which will allow you to email us directly. We can then coordinate a time that works for everyone.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
-                        <button @click="openFaq = openFaq === 3 ? null : 3" class="w-full text-left p-6 flex justify-between items-start focus:outline-none hover:bg-stone-50/50 transition-colors">
-                            <span class="font-semibold text-gray-700 pr-4">What can I expect in the first session?</span>
-                            <svg class="w-5 h-5 text-[#047857] transform transition-transform flex-shrink-0 mt-0.5" :class="{ 'rotate-180': openFaq === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-                        <div x-show="openFaq === 3" x-collapse class="px-6 pb-6">
-                            <p class="text-gray-600 leading-relaxed">The first session is primarily for us to get to know each other. We'll discuss what brought you to therapy, your history, and what you hope to achieve. It's a collaborative process where we set the foundation for our work together.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
-                        <button @click="openFaq = openFaq === 4 ? null : 4" class="w-full text-left p-6 flex justify-between items-start focus:outline-none hover:bg-stone-50/50 transition-colors">
-                            <span class="font-semibold text-gray-700 pr-4">How frequently can I schedule sessions?</span>
-                            <svg class="w-5 h-5 text-[#047857] transform transition-transform flex-shrink-0 mt-0.5" :class="{ 'rotate-180': openFaq === 4 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-                        <div x-show="openFaq === 4" x-collapse class="px-6 pb-6">
-                            <p class="text-gray-600 leading-relaxed">Most clients start with weekly sessions to build momentum. However, the frequency is flexible and can be adjusted to bi-weekly or monthly based on your needs, progress, and situation.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
-                        <button @click="openFaq = openFaq === 5 ? null : 5" class="w-full text-left p-6 flex justify-between items-start focus:outline-none hover:bg-stone-50/50 transition-colors">
-                            <span class="font-semibold text-gray-700 pr-4">How do I pay for sessions?</span>
-                            <svg class="w-5 h-5 text-[#047857] transform transition-transform flex-shrink-0 mt-0.5" :class="{ 'rotate-180': openFaq === 5 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-                        <div x-show="openFaq === 5" x-collapse class="px-6 pb-6">
-                            <p class="text-gray-600 leading-relaxed">We offer the first session free of cost. For subsequent sessions, payment details will be shared through WhatsApp. We currently accept payments via UPI only.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
-                        <button @click="openFaq = openFaq === 6 ? null : 6" class="w-full text-left p-6 flex justify-between items-start focus:outline-none hover:bg-stone-50/50 transition-colors">
-                            <span class="font-semibold text-gray-700 pr-4">What's the cancellation and refund policy?</span>
-                            <svg class="w-5 h-5 text-[#047857] transform transition-transform flex-shrink-0 mt-0.5" :class="{ 'rotate-180': openFaq === 6 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-                        <div x-show="openFaq === 6" x-collapse class="px-6 pb-6">
-                            <p class="text-gray-600 leading-relaxed">We require at least 24 hours notice for any cancellations or rescheduling. Cancellations made less than 24 hours before the session will not receive any refund. This policy allows us to offer the time slot to another client in need. For timely cancellations, the full refund will be processed through UPI within 3 business days.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-[#3D405B] text-white/80">
-        <div class="container mx-auto px-6 lg:px-8 py-10">
-            <div class="flex justify-center items-center">
-                <p class="text-sm text-white/60">&copy; 2024 Nayrah Health. All Rights Reserved.</p>
             </div>
         </div>
-    </footer>
+    </nav>
+
+    <div class="container mx-auto px-6 lg:px-10 max-w-7xl pt-32 pb-20 md:pt-40 md:pb-28">
+        <div class="max-w-3xl">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur border border-white/15 text-white/90 text-xs tracking-wide mb-7">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--butter)]"></span>
+                Now accepting clients online
+            </span>
+
+            <h1 class="display text-4xl md:text-5xl lg:text-6xl text-white tracking-tight mb-6" style="line-height: 1.15;">
+                A quiet space to figure out<br>
+                what feels <span class="underline-coral text-white">like you.</span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-white/80 max-w-xl leading-relaxed mb-9">
+                Therapy at Nayrah isn't about labels or fixing what's broken. It's a slow, honest conversation — one where you set the pace, and we walk beside you.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-3">
+                <a href="https://calendly.com/nayrahhealth/new-meeting?month=2025-12" target="_blank" class="inline-flex items-center gap-2 bg-white text-[var(--green-deep)] px-7 py-3.5 rounded-full font-medium hover:bg-[var(--butter)] transition-colors shadow-xl">
+                    Book your first session — free
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<main>
+
+<!-- PHILOSOPHY -->
+<section class="py-24 md:py-32 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[var(--cream-2)]/60"></div>
+    <div class="container relative mx-auto px-6 lg:px-10 max-w-5xl text-center">
+        <div class="eyebrow mb-6 mx-auto">our philosophy</div>
+
+        <p class="display text-2xl md:text-3xl lg:text-[2.25rem] text-[var(--ink)] mb-10" style="line-height: 1.4; font-weight: 500;">
+            "This is your space. You decide the pace, the direction, the dots, and the colours you pick. We are going to walk beside you — making sure it isn't a spiral, but <span class="underline-coral">a circle.</span>"
+        </p>
+
+        <div class="flex items-center justify-center gap-3 mb-8 text-sm text-[var(--ink-mute)]">
+            <span class="w-12 h-px bg-[var(--ink-mute)]/30"></span>
+            <span>nayrah's promise to you</span>
+            <span class="w-12 h-px bg-[var(--ink-mute)]/30"></span>
+        </div>
+
+        <a href="information.html" class="btn-ghost">
+            Read more about our approach
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-20 md:py-28 bg-[var(--paper)] border-y border-[var(--ink)]/5">
+    <div class="container mx-auto px-6 lg:px-10 max-w-7xl">
+        <div class="grid md:grid-cols-12 gap-10 mb-14 items-end">
+            <div class="md:col-span-7">
+                <div class="eyebrow mb-4">what we offer</div>
+                <h2 class="display text-3xl md:text-4xl text-[var(--ink)]">A small menu, held with care.</h2>
+            </div>
+            <p class="md:col-span-5 text-[var(--ink-soft)] text-lg">We keep our practice intentionally small so you get the time and attention this work deserves.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5">
+            <!-- Service 1 -->
+            <article class="card p-5 cat-talk">
+                <div class="service-img-wrap aspect-[16/10] mb-5">
+                    <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=1200&auto=format&fit=crop" alt="" class="w-full h-full object-cover">
+                    <span class="cat-tag absolute top-4 left-4 z-10">talk &amp; mindfulness</span>
+                </div>
+                <div class="px-2 pb-3">
+                    <h3 class="display text-2xl md:text-[1.7rem] mb-2.5 text-[var(--ink)]">1:1 talk therapy</h3>
+                    <p class="text-[var(--ink-soft)]">Personal sessions to gently work through stress, anxiety, and the everyday weight — using reflection, mindfulness, and evidence-based techniques.</p>
+                </div>
+            </article>
+
+            <!-- Service 2 -->
+            <article class="card p-5 cat-career">
+                <div class="service-img-wrap aspect-[16/10] mb-5">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1200&auto=format&fit=crop" alt="" class="w-full h-full object-cover">
+                    <span class="cat-tag absolute top-4 left-4 z-10">career &amp; students</span>
+                </div>
+                <div class="px-2 pb-3">
+                    <h3 class="display text-2xl md:text-[1.7rem] mb-2.5 text-[var(--ink)]">career counselling</h3>
+                    <p class="text-[var(--ink-soft)]">Psychology-grounded sessions to explore your strengths, untangle the noise, and build real confidence in what you choose next.</p>
+                </div>
+            </article>
+
+            <!-- Service 3 -->
+            <article class="card p-5 cat-psyched">
+                <div class="service-img-wrap aspect-[16/10] mb-5">
+                    <img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?q=80&w=1200&auto=format&fit=crop" alt="" class="w-full h-full object-cover">
+                    <span class="cat-tag absolute top-4 left-4 z-10">psychoeducation</span>
+                </div>
+                <div class="px-2 pb-3">
+                    <h3 class="display text-2xl md:text-[1.7rem] mb-2.5 text-[var(--ink)]">learn how your mind works</h3>
+                    <p class="text-[var(--ink-soft)]">Curious about mental health but not in crisis? Simple, friendly sessions on understanding your thoughts, emotions, and coping patterns.</p>
+                </div>
+            </article>
+
+            <!-- Service 4 -->
+            <article class="card p-5 cat-mind">
+                <div class="service-img-wrap aspect-[16/10] mb-5">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1200&auto=format&fit=crop" alt="" class="w-full h-full object-cover">
+                    <span class="cat-tag absolute top-4 left-4 z-10">self-compassion</span>
+                </div>
+                <div class="px-2 pb-3">
+                    <h3 class="display text-2xl md:text-[1.7rem] mb-2.5 text-[var(--ink)]">mindfulness practice</h3>
+                    <p class="text-[var(--ink-soft)]">Guided sessions to slow down, reconnect with yourself, and find a quiet kind of balance — one that holds, even on the hard days.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- TEAM CTA STRIP -->
+<section id="team" class="py-16 md:py-20 relative overflow-hidden" style="background: linear-gradient(180deg, var(--cream-2) 0%, #dde8df 50%, var(--cream-2) 100%);">
+    <div class="blob blob-green" style="width: 400px; height: 400px; top: 10%; right: -150px; opacity: 0.35;"></div>
+    <div class="container relative mx-auto px-6 lg:px-10 max-w-5xl">
+        <div class="card p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center gap-8">
+            <div class="flex -space-x-3 shrink-0">
+                <img src="anupriya.jpg" alt="" class="w-16 h-16 rounded-full object-cover ring-4 ring-[var(--paper)]">
+                <img src="priya.jpg" alt="" class="w-16 h-16 rounded-full object-cover ring-4 ring-[var(--paper)]">
+            </div>
+            <div class="flex-1">
+                <div class="eyebrow mb-3">meet your therapists</div>
+                <h2 class="display text-2xl md:text-3xl text-[var(--ink)] mb-2">The people who'll listen.</h2>
+                <p class="text-[var(--ink-soft)]">Read about our therapists, their training, and the founders behind Nayrah.</p>
+            </div>
+            <a href="team.html" class="btn-primary shrink-0">
+                Meet the team
+                <svg class="arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-20 md:py-24 bg-[var(--cream-2)]/50">
+    <div class="container mx-auto max-w-7xl">
+        <div class="text-center mb-12 px-6">
+            <div class="eyebrow mb-4 mx-auto">kind words</div>
+            <h2 class="display text-3xl md:text-4xl text-[var(--ink)]">What clients have said.</h2>
+        </div>
+
+        <div class="marquee">
+            <div class="marquee-track">
+                <!-- Set A -->
+                <div class="testimonial tilt-l">
+                    <div class="display-i text-3xl text-[var(--coral)] leading-none mb-3">"</div>
+                    <p class="text-[var(--ink)] leading-relaxed mb-5">Working with the team was life-changing. I finally felt heard and understood without judgment.</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-[var(--ink)]/8">
+                        <div class="w-10 h-10 rounded-full bg-[var(--green-tint)] flex items-center justify-center display-i text-[var(--green-deep)]">A</div>
+                        <div class="text-sm">
+                            <div class="font-medium text-[var(--ink)]">A.K.</div>
+                            <div class="text-[var(--ink-mute)] text-xs">28 · software engineer</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial tilt-r">
+                    <div class="display-i text-3xl text-[var(--coral)] leading-none mb-3">"</div>
+                    <p class="text-[var(--ink)] leading-relaxed mb-5">The space here is so warm and safe. I was hesitant about therapy, but it felt like a conversation with a trusted friend who has the tools to help.</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-[var(--ink)]/8">
+                        <div class="w-10 h-10 rounded-full bg-[var(--coral-soft)] flex items-center justify-center display-i text-[#8E4426]">S</div>
+                        <div class="text-sm">
+                            <div class="font-medium text-[var(--ink)]">S.R.</div>
+                            <div class="text-[var(--ink-mute)] text-xs">32 · teacher</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial tilt-l">
+                    <div class="display-i text-3xl text-[var(--coral)] leading-none mb-3">"</div>
+                    <p class="text-[var(--ink)] leading-relaxed mb-5">I've learned so much about myself and my patterns. The coping strategies have made a real difference in my daily life.</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-[var(--ink)]/8">
+                        <div class="w-10 h-10 rounded-full bg-[#F0E5C7] flex items-center justify-center display-i text-[#6E5916]">M</div>
+                        <div class="text-sm">
+                            <div class="font-medium text-[var(--ink)]">M.L.</div>
+                            <div class="text-[var(--ink-mute)] text-xs">25 · graduate student</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial tilt-r">
+                    <div class="display-i text-3xl text-[var(--coral)] leading-none mb-3">"</div>
+                    <p class="text-[var(--ink)] leading-relaxed mb-5">Gentle yet powerful. They helped me connect the dots from my past to my present, which was incredibly enlightening.</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-[var(--ink)]/8">
+                        <div class="w-10 h-10 rounded-full bg-[#E2E9DD] flex items-center justify-center display-i text-[#3A4A39]">D</div>
+                        <div class="text-sm">
+                            <div class="font-medium text-[var(--ink)]">D.P.</div>
+                            <div class="text-[var(--ink-mute)] text-xs">35 · marketing manager</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial tilt-l">
+                    <div class="display-i text-3xl text-[var(--coral)] leading-none mb-3">"</div>
+                    <p class="text-[var(--ink)] leading-relaxed mb-5">A beacon of hope. The compassionate guidance and practical tools have transformed how I handle stress.</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-[var(--ink)]/8">
+                        <div class="w-10 h-10 rounded-full bg-[var(--green-tint)] flex items-center justify-center display-i text-[var(--green-deep)]">R</div>
+                        <div class="text-sm">
+                            <div class="font-medium text-[var(--ink)]">R.T.</div>
+                            <div class="text-[var(--ink-mute)] text-xs">29 · nurse</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Set B (duplicate for loop) -->
+                <div class="testimonial tilt-l">
+                    <div class="display-i text-3xl text-[var(--coral)] leading-none mb-3">"</div>
+                    <p class="text-[var(--ink)] leading-relaxed mb-5">Working with the team was life-changing. I finally felt heard and understood without judgment.</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-[var(--ink)]/8">
+                        <div class="w-10 h-10 rounded-full bg-[var(--green-tint)] flex items-center justify-center display-i text-[var(--green-deep)]">A</div>
+                        <div class="text-sm">
+                            <div class="font-medium text-[var(--ink)]">A.K.</div>
+                            <div class="text-[var(--ink-mute)] text-xs">28 · software engineer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial tilt-r">
+                    <div class="display-i text-3xl text-[var(--coral)] leading-none mb-3">"</div>
+                    <p class="text-[var(--ink)] leading-relaxed mb-5">The space here is so warm and safe. I was hesitant about therapy, but it felt like a conversation with a trusted friend.</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-[var(--ink)]/8">
+                        <div class="w-10 h-10 rounded-full bg-[var(--coral-soft)] flex items-center justify-center display-i text-[#8E4426]">S</div>
+                        <div class="text-sm">
+                            <div class="font-medium text-[var(--ink)]">S.R.</div>
+                            <div class="text-[var(--ink-mute)] text-xs">32 · teacher</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial tilt-l">
+                    <div class="display-i text-3xl text-[var(--coral)] leading-none mb-3">"</div>
+                    <p class="text-[var(--ink)] leading-relaxed mb-5">I've learned so much about myself and my patterns. The coping strategies have made a real difference.</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-[var(--ink)]/8">
+                        <div class="w-10 h-10 rounded-full bg-[#F0E5C7] flex items-center justify-center display-i text-[#6E5916]">M</div>
+                        <div class="text-sm">
+                            <div class="font-medium text-[var(--ink)]">M.L.</div>
+                            <div class="text-[var(--ink-mute)] text-xs">25 · graduate student</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial tilt-r">
+                    <div class="display-i text-3xl text-[var(--coral)] leading-none mb-3">"</div>
+                    <p class="text-[var(--ink)] leading-relaxed mb-5">Gentle yet powerful. They helped me connect the dots from my past to my present.</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-[var(--ink)]/8">
+                        <div class="w-10 h-10 rounded-full bg-[#E2E9DD] flex items-center justify-center display-i text-[#3A4A39]">D</div>
+                        <div class="text-sm">
+                            <div class="font-medium text-[var(--ink)]">D.P.</div>
+                            <div class="text-[var(--ink-mute)] text-xs">35 · marketing manager</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial tilt-l">
+                    <div class="display-i text-3xl text-[var(--coral)] leading-none mb-3">"</div>
+                    <p class="text-[var(--ink)] leading-relaxed mb-5">A beacon of hope. The compassionate guidance has transformed how I handle stress.</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-[var(--ink)]/8">
+                        <div class="w-10 h-10 rounded-full bg-[var(--green-tint)] flex items-center justify-center display-i text-[var(--green-deep)]">R</div>
+                        <div class="text-sm">
+                            <div class="font-medium text-[var(--ink)]">R.T.</div>
+                            <div class="text-[var(--ink-mute)] text-xs">29 · nurse</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-20 md:py-28" x-data="{ openFaq: 1 }">
+    <div class="container mx-auto px-6 lg:px-10 max-w-4xl">
+        <div class="text-center mb-12">
+            <div class="eyebrow mb-4 mx-auto">questions, answered</div>
+            <h2 class="display text-3xl md:text-4xl text-[var(--ink)]">A few things people often ask.</h2>
+        </div>
+
+        <div class="space-y-3">
+            <template x-for="(item, idx) in [
+                {q: 'How do I schedule a session?', a: 'Hit \&quot;Book a session\&quot; up top and pick a time that works on Calendly. Or email us through the form — we usually reply within a day.'},
+                {q: 'What happens in the first session?', a: 'We listen. You tell us what brought you here, what is weighing on you, confusion, your hopes. We use a client-centred approach where we ask you gentle questions to understand the shape of things, then talk together about where to start.'},
+                {q: 'How often will we meet?', a: 'Most people start weekly to build momentum, but it\&#39;s flexible. Bi-weekly, monthly, or pause-and-return all work. We\&#39;ll figure out what fits your life as we go.'},
+                {q: 'What does it cost — and how do I pay?', a: 'Your first session is free. After that, fees and UPI details are shared over WhatsApp so we can match the right rate to your situation.'},
+                {q: 'What if I need to cancel or reschedule?', a: 'Just give us 24 hours — we\&#39;ll happily move things or refund via UPI within 3 business days. Cancellations under 24 hours aren\&#39;t refundable, so we can offer the slot to someone else.'},
+                {q: 'How does the whole process work?', a: 'You book a slot, and we start with a fit session to see if we\&#39;re the right match. If you find the fit — great, we continue. If not, you have two options: try with a different therapist on our team, or walk away with a full refund, no questions asked. And if you try someone else and it\&#39;s still not right? Full refund again. At every step, you\&#39;re in control — there\&#39;s zero risk.'}            ]" :key="idx">
+                <div class="faq-item" :data-open="openFaq === idx + 1">
+                    <button @click="openFaq = openFaq === idx + 1 ? null : idx + 1" class="w-full text-left p-6 flex justify-between items-center gap-4 focus:outline-none">
+                        <span class="display text-xl md:text-[1.4rem] text-[var(--ink)] pr-4" x-text="item.q"></span>
+                        <span class="plus-icon"></span>
+                    </button>
+                    <div x-show="openFaq === idx + 1" x-collapse>
+                        <p class="px-6 pb-6 text-[var(--ink-soft)] leading-relaxed" x-html="item.a"></p>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <p class="text-center mt-10 text-[var(--ink-mute)]">Still wondering something? <a href="mailto:hello@nayrah.health" class="text-[var(--green)] underline underline-offset-4 decoration-[var(--green)]/30 hover:decoration-[var(--green)]">drop us a line.</a></p>
+    </div>
+</section>
+
+<!-- BIG CTA -->
+<section id="book-session" class="py-12 md:py-16">
+    <div class="container mx-auto px-6 lg:px-10 max-w-7xl">
+        <div class="cta-block px-8 py-16 md:px-16 md:py-24 text-center text-white relative overflow-hidden">
+            <div class="display-i text-white/60 text-2xl mb-4">a small first step</div>
+            <h2 class="display text-3xl md:text-5xl mb-6" style="line-height: 1.18;">If you've been carrying<br>something heavy — let's start there.</h2>
+            <p class="text-white/75 text-lg max-w-xl mx-auto mb-10">Your first 50-minute session is on us. No paperwork, no pressure. Just a conversation.</p>
+            <div class="flex flex-wrap items-center justify-center gap-3">
+                <a href="https://calendly.com/nayrahhealth/new-meeting?month=2025-12" target="_blank" class="inline-flex items-center gap-2 bg-white text-[var(--green-deep)] font-medium py-4 px-8 rounded-full hover:bg-[var(--butter)] transition-colors">
+                    Book your free session
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="mailto:hello@nayrah.health" class="inline-flex items-center gap-2 text-white/90 hover:text-white py-4 px-6 rounded-full border border-white/30 hover:border-white/60 transition-colors">
+                    Or send us a note
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="pt-16 pb-10">
+    <div class="container mx-auto px-6 lg:px-10 max-w-7xl">
+        <div class="grid md:grid-cols-12 gap-10 mb-12">
+            <div class="md:col-span-5">
+                <div class="flex items-center gap-2.5 mb-4">
+                    <div class="w-9 h-9 rounded-full bg-[var(--green)] flex items-center justify-center text-white">
+                        <span class="display-i text-xl leading-none">N</span>
+                    </div>
+                    <div class="display text-2xl text-[var(--ink)]">Nayrah</div>
+                </div>
+                <p class="text-[var(--ink-soft)] max-w-sm">a therapy service built around connection, clarity, and going at your own pace.</p>
+            </div>
+
+            <div class="md:col-span-3">
+                <div class="text-xs uppercase tracking-wider text-[var(--ink-mute)] mb-4">explore</div>
+                <ul class="space-y-2.5 text-[var(--ink-soft)]">
+                    <li><a href="#services" class="hover:text-[var(--green)] transition-colors">services</a></li>
+                    <li><a href="#team" class="hover:text-[var(--green)] transition-colors">therapists</a></li>
+                    <li><a href="information.html" class="hover:text-[var(--green)] transition-colors">our approach</a></li>
+                    <li><a href="#faq" class="hover:text-[var(--green)] transition-colors">faqs</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4">
+                <div class="text-xs uppercase tracking-wider text-[var(--ink-mute)] mb-4">say hello</div>
+                <ul class="space-y-2.5 text-[var(--ink-soft)] mb-5">
+                    <li><a href="mailto:hello@nayrah.health" class="hover:text-[var(--green)] transition-colors">hello@nayrah.health</a></li>
+                    <li><a href="https://calendly.com/nayrahhealth/new-meeting?month=2025-12" target="_blank" class="hover:text-[var(--green)] transition-colors">book a session &rarr;</a></li>
+                </ul>
+                <div class="flex items-center gap-2.5">
+                    <a href="https://instagram.com/nayrahhealth" target="_blank" aria-label="Instagram" class="w-10 h-10 rounded-full border border-[var(--ink)]/12 flex items-center justify-center text-[var(--ink-soft)] hover:text-white hover:bg-[var(--green)] hover:border-transparent transition-colors">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+                    </a>
+                    <a href="https://twitter.com/nayrahhealth" target="_blank" aria-label="X (Twitter)" class="w-10 h-10 rounded-full border border-[var(--ink)]/12 flex items-center justify-center text-[var(--ink-soft)] hover:text-white hover:bg-[var(--green)] hover:border-transparent transition-colors">
+                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://linkedin.com/company/nayrahhealth" target="_blank" aria-label="LinkedIn" class="w-10 h-10 rounded-full border border-[var(--ink)]/12 flex items-center justify-center text-[var(--ink-soft)] hover:text-white hover:bg-[var(--green)] hover:border-transparent transition-colors">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.86 3.37-1.86 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-8 border-t border-[var(--ink)]/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-[var(--ink-mute)]">
+            <p>&copy; 2026 Nayrah Health. all rights reserved.</p>
+            <p class="display-i text-base text-[var(--ink-soft)]">a circle, not a spiral.</p>
+        </div>
+    </div>
+</footer>
+
+</main>
 
 </body>
 </html>
