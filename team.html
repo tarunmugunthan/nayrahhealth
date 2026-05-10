@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team — Nayrah</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink:#1F2A28; --ink-soft:#4A554F; --ink-mute:#7A8479;
+            --cream:#FBF6EC; --cream-2:#F4ECDC; --paper:#FFFCF5;
+            --green:#047857; --green-deep:#023A2A; --green-tint:#EEF6EF;
+            --coral:#E89A7C; --coral-soft:#F4D5C2; --butter:#F1D88B;
+        }
+        html, body { background-color: var(--cream); }
+        body { font-family:'Manrope', system-ui, sans-serif; font-size:1.0625rem; line-height:1.6; color:var(--ink); -webkit-font-smoothing: antialiased; }
+        .display { font-family:'Manrope', system-ui, sans-serif; font-weight:600; letter-spacing:-0.02em; line-height:1.18; }
+        .nav { position:sticky; top:0; z-index:50; background-color:rgba(251,246,236,0.85); backdrop-filter:blur(14px) saturate(140%); border-bottom:1px solid rgba(31,42,40,0.06); }
+        .btn-primary { background-color:var(--green); color:white; padding:0.75rem 1.5rem; border-radius:999px; font-weight:500; font-size:0.95rem; display:inline-flex; align-items:center; gap:0.5rem; transition:all 0.25s ease; box-shadow:0 8px 24px -10px rgba(4,120,87,0.45); }
+        .btn-primary:hover { background-color:var(--green-deep); transform:translateY(-1px); }
+        .btn-ghost { color:var(--ink); background:transparent; border:1px solid rgba(31,42,40,0.18); padding:0.65rem 1.3rem; border-radius:999px; font-weight:500; font-size:0.9rem; display:inline-flex; align-items:center; gap:0.5rem; }
+        .btn-ghost:hover { background:rgba(31,42,40,0.04); }
+        .eyebrow { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.78rem; font-weight:500; letter-spacing:0.04em; text-transform:uppercase; color:var(--green); }
+        .eyebrow::before { content:""; width:22px; height:1px; background:var(--green); }
+        .card { background:var(--paper); border-radius:24px; border:1px solid rgba(31,42,40,0.06); transition: transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s ease, border-color .35s ease; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -18px rgba(31,42,40,0.18); border-color: rgba(4,120,87,0.2); }
+        .pill { display:inline-flex; align-items:center; padding:0.4rem 0.85rem; border-radius:999px; background:var(--green-tint); color:var(--green-deep); font-size:0.75rem; font-weight:500; letter-spacing:0.02em; }
+        .blob { position:absolute; border-radius:999px; filter:blur(40px); pointer-events:none; opacity:0.45; }
+        .underline-coral { background-image:linear-gradient(transparent 60%, rgba(232,154,124,0.5) 60%); background-repeat:no-repeat; background-size:100% 100%; padding:0 0.1em; }
+        .cta-block { background:var(--green-deep); background-image:radial-gradient(circle at 12% 20%, rgba(232,154,124,0.35), transparent 45%), radial-gradient(circle at 92% 85%, rgba(241,216,139,0.25), transparent 45%); border-radius:36px; }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="container mx-auto px-6 lg:px-10 max-w-7xl">
+        <div class="flex items-center justify-between h-[72px]">
+            <a href="index.html" class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-full bg-[var(--green)] flex items-center justify-center text-white"><span class="display text-lg leading-none">N</span></div>
+                <div class="leading-tight">
+                    <div class="display text-2xl text-[var(--ink)]">Nayrah</div>
+                    <div class="text-[10px] tracking-[0.18em] uppercase text-[var(--ink-mute)] -mt-0.5">a therapy service</div>
+                </div>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="index.html#services" class="px-4 py-2 text-[15px] text-[var(--ink-soft)] hover:text-[var(--green)] transition-colors">services</a>
+                <a href="team.html" class="px-4 py-2 text-[15px] text-[var(--green)] font-medium transition-colors">therapists</a>
+                <a href="information.html" class="px-4 py-2 text-[15px] text-[var(--ink-soft)] hover:text-[var(--green)] transition-colors">our approach</a>
+                <a href="index.html#faq" class="px-4 py-2 text-[15px] text-[var(--ink-soft)] hover:text-[var(--green)] transition-colors">faqs</a>
+            </div>
+            <a href="https://calendly.com/nayrahhealth/new-meeting?month=2025-12" target="_blank" class="btn-primary text-sm">Book a session
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<main>
+
+<!-- Page header -->
+<section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="blob" style="background:var(--coral); width:380px; height:380px; top:-80px; right:-120px;"></div>
+    <div class="blob" style="background:var(--butter); width:280px; height:280px; bottom:-100px; left:-80px;"></div>
+    <div class="container relative mx-auto px-6 lg:px-10 max-w-4xl text-center">
+        <div class="eyebrow mb-5 mx-auto">our team</div>
+        <h1 class="display text-4xl md:text-5xl lg:text-6xl text-[var(--ink)] mb-6" style="line-height:1.15;">The people behind Nayrah.</h1>
+        <p class="text-lg md:text-xl text-[var(--ink-soft)] max-w-2xl mx-auto">A small, growing practice of therapists committed to honest, unhurried, evidence-based care. Every person here is here because they actually want to listen.</p>
+    </div>
+</section>
+
+<!-- Therapists list -->
+<section class="py-12 md:py-16 bg-[var(--paper)] border-y border-[var(--ink)]/5">
+    <div class="container mx-auto px-6 lg:px-10 max-w-6xl">
+        <div class="mb-12">
+            <div class="eyebrow mb-3">therapists</div>
+            <h2 class="display text-3xl md:text-4xl text-[var(--ink)]">Currently practising.</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5 lg:gap-6">
+            <!-- Anupriya -->
+            <a href="profile_anupriya.html" class="card group overflow-hidden block">
+                <div class="relative aspect-[5/4] overflow-hidden">
+                    <img src="anupriya.jpg" alt="Anupriya Toshniwal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[var(--green-deep)]/40 via-transparent to-transparent"></div>
+                    <div class="absolute top-4 left-4">
+                        <span class="pill" style="background:rgba(255,252,245,0.92); color:var(--green-deep);">co-founder · therapist</span>
+                    </div>
+                </div>
+                <div class="p-7">
+                    <h3 class="display text-2xl md:text-[1.7rem] mb-1 text-[var(--ink)] group-hover:text-[var(--green)] transition-colors">Anupriya Toshniwal</h3>
+                    <p class="text-sm text-[var(--green)] font-medium mb-4 tracking-wide">MA Psychology, Clinical</p>
+                    <p class="text-[var(--ink-soft)] leading-relaxed">"Everyone deserves a place where they can be fully themselves — speak freely, and feel seen without judgment."</p>
+                    <div class="mt-5 flex items-center text-sm text-[var(--green)] font-medium">
+                        Read Anupriya's story
+                        <svg class="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Priya -->
+            <a href="profile_priya.html" class="card group overflow-hidden block">
+                <div class="relative aspect-[5/4] overflow-hidden">
+                    <img src="priya.jpg" alt="Priyadarshini Mugunthan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[var(--green-deep)]/40 via-transparent to-transparent"></div>
+                    <div class="absolute top-4 left-4">
+                        <span class="pill" style="background:rgba(255,252,245,0.92); color:var(--green-deep);">co-founder · therapist</span>
+                    </div>
+                </div>
+                <div class="p-7">
+                    <h3 class="display text-2xl md:text-[1.7rem] mb-1 text-[var(--ink)] group-hover:text-[var(--green)] transition-colors">Priyadarshini Mugunthan</h3>
+                    <p class="text-sm text-[var(--green)] font-medium mb-4 tracking-wide">Trainee Clinical Psychologist, RCI</p>
+                    <p class="text-[var(--ink-soft)] leading-relaxed">"A space free of judgement and pretense — for raw emotions, looking inward, and untangling what's holding you back."</p>
+                    <div class="mt-5 flex items-center text-sm text-[var(--green)] font-medium">
+                        Read Priya's story
+                        <svg class="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <p class="mt-10 text-[var(--ink-mute)] text-sm">More therapists joining us soon. Want to be part of the team? <a href="mailto:hello@nayrah.health" class="text-[var(--green)] underline underline-offset-4 decoration-[var(--green)]/30 hover:decoration-[var(--green)]">say hello</a>.</p>
+    </div>
+</section>
+
+<!-- Founders / story -->
+<section class="py-20 md:py-28">
+    <div class="container mx-auto px-6 lg:px-10 max-w-4xl">
+        <div class="eyebrow mb-4">our story</div>
+        <h2 class="display text-3xl md:text-4xl text-[var(--ink)] mb-8" style="line-height:1.18;">Founded by people who wished, growing up, that someone had simply asked.</h2>
+        <div class="space-y-5 text-[var(--ink-soft)] text-lg leading-relaxed">
+            <p>Nayrah began as a quiet conversation between two friends — Anupriya and Priya — about the kind of mental health support we wished we'd had access to in our twenties. Honest, unhurried, free of jargon, and built around the person sitting across the room rather than a worksheet.</p>
+            <p>We started small on purpose. A small practice means we can pay attention to the things that matter — the pace each person needs, the texture of a hard week, the quiet moments where something finally clicks. As we grow, that's the standard we keep.</p>
+            <p>Every therapist who joins Nayrah goes through a careful match — clinically, but also for the way they hold a room. We'd rather take longer to add the right person than fill a slot. That's the <span class="underline-coral">promise behind the practice</span>.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-12 md:py-16">
+    <div class="container mx-auto px-6 lg:px-10 max-w-7xl">
+        <div class="cta-block px-8 py-14 md:px-16 md:py-20 text-center text-white">
+            <h2 class="display text-3xl md:text-4xl mb-4" style="line-height:1.18;">Have a question about who'd be the right fit?</h2>
+            <p class="text-white/80 max-w-xl mx-auto mb-8">Book a free intro call and we'll figure it out together — no pressure, no commitment.</p>
+            <a href="https://calendly.com/nayrahhealth/new-meeting?month=2025-12" target="_blank" class="inline-flex items-center gap-2 bg-white text-[var(--green-deep)] font-medium py-3.5 px-7 rounded-full hover:bg-[var(--butter)] transition-colors">Book a free session
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer class="pt-12 pb-10">
+    <div class="container mx-auto px-6 lg:px-10 max-w-7xl">
+        <div class="pt-8 border-t border-[var(--ink)]/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-[var(--ink-mute)]">
+            <p>&copy; 2026 Nayrah Health. All rights reserved.</p>
+            <p class="text-base text-[var(--ink-soft)]">A circle, not a spiral.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
