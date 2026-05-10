@@ -3,150 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Information - Nayrah</title>
+    <title>Our approach — Nayrah</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'PT Serif', serif;
-            font-weight: 400;
-            font-size: 1.125rem;
-            background-color: #FDFBF8;
-            color: #2D3748;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        :root {
+            --ink: #1F2A28; --ink-soft: #4A554F; --ink-mute: #7A8479;
+            --cream: #FBF6EC; --cream-2: #F4ECDC; --paper: #FFFCF5;
+            --green: #047857; --green-deep: #023A2A; --green-soft: #DDEDE2; --green-tint: #EEF6EF;
+            --coral: #E89A7C; --coral-soft: #F4D5C2; --butter: #F1D88B;
         }
-        
-        h1, h2, h3, h4, h5, h6,
-        .font-semibold, .font-bold, b, strong {
-            font-weight: 700;
-        }
-
-        .sticky-header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background-color: rgba(253, 251, 248, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(224, 220, 211, 0.6);
-        }
-
-        .cta-button {
-            background-color: #047857;
-            color: #FFFFFF;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 2px 8px rgba(4, 120, 87, 0.25);
-        }
-
-        .cta-button:hover {
-            background-color: #065f46;
-            box-shadow: 0 4px 12px rgba(4, 120, 87, 0.35);
-            transform: translateY(-1px);
-        }
-
-        .info-card {
-            background: #FFFFFF;
-            border: 1px solid rgba(224, 220, 211, 0.8);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-            border-left: 3px solid #047857;
-        }
-
-        .section-label {
-            font-size: 0.75rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: #047857;
-            font-weight: 600;
-        }
-
-        .divider {
-            width: 50px;
-            height: 2px;
-            background: linear-gradient(90deg, #047857, rgba(4, 120, 87, 0.3));
-        }
-
-        .sticky-back-button {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background-color: rgba(253, 251, 248, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(224, 220, 211, 0.6);
-        }
+        html, body { background-color: var(--cream); }
+        body { font-family: 'DM Sans', system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.6; color: var(--ink); -webkit-font-smoothing: antialiased; }
+        .display { font-family: 'Instrument Serif', serif; font-weight: 400; letter-spacing: -0.01em; }
+        .display-i { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+        .nav { position: sticky; top: 0; z-index: 50; background-color: rgba(251, 246, 236, 0.78); backdrop-filter: blur(14px) saturate(140%); border-bottom: 1px solid rgba(31, 42, 40, 0.06); }
+        .btn-primary { background-color: var(--green); color: white; padding: 0.75rem 1.5rem; border-radius: 999px; font-weight: 500; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.25s ease; box-shadow: 0 8px 24px -10px rgba(4, 120, 87, 0.45); }
+        .btn-primary:hover { background-color: var(--green-deep); transform: translateY(-1px); }
+        .btn-ghost { color: var(--ink); background: transparent; border: 1px solid rgba(31, 42, 40, 0.18); padding: 0.65rem 1.3rem; border-radius: 999px; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .btn-ghost:hover { background: rgba(31, 42, 40, 0.04); }
+        .eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--green); }
+        .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--green); }
+        .info-card { background: var(--paper); border-radius: 24px; border: 1px solid rgba(31, 42, 40, 0.06); transition: all 0.3s ease; }
+        .info-card:hover { transform: translateY(-2px); border-color: rgba(4, 120, 87, 0.25); box-shadow: 0 18px 40px -18px rgba(31, 42, 40, 0.1); }
+        .underline-coral { background-image: linear-gradient(transparent 60%, rgba(232, 154, 124, 0.5) 60%); background-repeat: no-repeat; background-size: 100% 100%; padding: 0 0.1em; }
+        .blob { position: absolute; border-radius: 999px; filter: blur(40px); pointer-events: none; opacity: 0.5; }
+        .num-tag { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 999px; background: var(--green-tint); color: var(--green-deep); font-family: 'Instrument Serif', serif; font-style: italic; font-size: 1.25rem; }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <!-- Sticky Back Button -->
-    <div class="sticky-back-button py-4">
-        <div class="container mx-auto px-6 lg:px-8">
-            <a href="index.html" class="inline-flex items-center text-[#047857] hover:text-[#065f46] transition-colors font-semibold">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
-                </svg>
-                Back to Home
+<nav class="nav">
+    <div class="container mx-auto px-6 lg:px-10 max-w-7xl">
+        <div class="flex items-center justify-between h-[72px]">
+            <a href="index.html" class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-full bg-[var(--green)] flex items-center justify-center text-white">
+                    <span class="display-i text-xl leading-none">N</span>
+                </div>
+                <div class="leading-tight">
+                    <div class="display text-2xl text-[var(--ink)]">Nayrah</div>
+                    <div class="text-[10px] tracking-[0.18em] uppercase text-[var(--ink-mute)] -mt-0.5">a therapy service</div>
+                </div>
+            </a>
+            <a href="index.html" class="btn-ghost">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                back home
             </a>
         </div>
     </div>
+</nav>
 
-    <main>
-        <!-- Page Header -->
-        <section class="py-20 md:py-24 bg-stone-200/70">
-            <div class="container mx-auto px-6 lg:px-8 text-center max-w-4xl">
-                <p class="section-label mb-4">About Our Practice</p>
-                <h1 class="text-4xl lg:text-5xl text-gray-800 leading-tight mb-6">
-                    A blank canvas for your feelings so <span class="italic">you</span> can connect the dots.
-                </h1>
-                <div class="divider mx-auto"></div>
-            </div>
-        </section>
+<main>
+    <section class="relative py-20 md:py-28 overflow-hidden">
+        <div class="blob" style="background: var(--coral); width: 320px; height: 320px; top: -60px; right: -100px;"></div>
+        <div class="container relative mx-auto px-6 lg:px-10 max-w-4xl">
+            <div class="eyebrow mb-6">about our practice</div>
+            <h1 class="display text-5xl md:text-6xl lg:text-7xl text-[var(--ink)] leading-[1.02] tracking-tight">
+                a blank canvas<br>for your feelings —<br><span class="display-i">so</span> <span class="display-i underline-coral">you</span> <span class="display-i">can connect the dots.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-[var(--ink-soft)] mt-8 max-w-2xl leading-relaxed">
+                Therapy here isn't about labels or diagnoses. It's about connection, clarity, and giving you the space to find your own way through.
+            </p>
+        </div>
+    </section>
 
-        <!-- Information Content -->
-        <section id="philosophy" class="py-20 md:py-24 bg-white">
-            <div class="container mx-auto px-6 lg:px-8 max-w-4xl">
-                <div class="space-y-8">
-                    <div class="info-card p-8 rounded-lg">
-                        <h3 class="text-2xl font-semibold text-[#047857] mb-4">Why is therapy important?</h3>
-                        <p class="leading-relaxed text-gray-600">
-                            Therapy is important – it works in similar ways as taking precautions to avoid long term illness or distress. We believe it is precautionary measures to help cope with life in this technologically advanced world where there is not much in our control, making us feel completely lost. It also helps on a weekly basis to get your thoughts out, rejuvenate your mind and continue with a fresher outlook.
-                        </p>
+    <section class="py-16 md:py-24">
+        <div class="container mx-auto px-6 lg:px-10 max-w-4xl">
+            <div class="space-y-5">
+                <div class="info-card p-8 md:p-10">
+                    <div class="flex items-start gap-5 mb-5">
+                        <span class="num-tag">01</span>
+                        <h3 class="display text-3xl md:text-[2rem] text-[var(--ink)] leading-tight pt-1.5">Why is therapy <span class="display-i">important?</span></h3>
                     </div>
-                    <div class="info-card p-8 rounded-lg">
-                        <h3 class="text-2xl font-semibold text-[#047857] mb-4">What is our approach to therapy?</h3>
-                        <p class="leading-relaxed text-gray-600">
-                            We believe in cognitive restructuring in a way where we want to help replace the negative thoughts into positive ones, so one feels more in control of their own journey. We also believe in letting you take the first step into the whole therapy process, so you know you are the one holding the steering and we will help guide the best path possible.
-                        </p>
+                    <p class="text-[var(--ink-soft)] leading-relaxed text-lg">
+                        Therapy works the way taking precautions does — small, regular care to help you cope with a world that often feels out of control. It's a place to get your thoughts out, rejuvenate your mind, and step back into the week with a fresher outlook.
+                    </p>
+                </div>
+
+                <div class="info-card p-8 md:p-10">
+                    <div class="flex items-start gap-5 mb-5">
+                        <span class="num-tag" style="background: var(--coral-soft); color: #8E4426;">02</span>
+                        <h3 class="display text-3xl md:text-[2rem] text-[var(--ink)] leading-tight pt-1.5">What's our <span class="display-i">approach?</span></h3>
                     </div>
-                    <div class="info-card p-8 rounded-lg">
-                        <h3 class="text-2xl font-semibold text-[#047857] mb-4">What is unique about it?</h3>
-                        <p class="leading-relaxed text-gray-600">
-                            We believe in providing a space where you can be vulnerable about any aspect of life because we believe everything contributes to something. This is more an exploration space for you to just map out your thoughts, actions without any judgement and connect the dots, find a pattern and help figure out a path that works for you.
-                        </p>
+                    <p class="text-[var(--ink-soft)] leading-relaxed text-lg">
+                        We believe in cognitive restructuring — gently helping you replace negative loops with thoughts that feel a little more in your control. We also believe <em class="display-i">you</em> take the first step. You hold the steering. We're here to help you find the path that works.
+                    </p>
+                </div>
+
+                <div class="info-card p-8 md:p-10">
+                    <div class="flex items-start gap-5 mb-5">
+                        <span class="num-tag" style="background: #F0E5C7; color: #6E5916;">03</span>
+                        <h3 class="display text-3xl md:text-[2rem] text-[var(--ink)] leading-tight pt-1.5">What's <span class="display-i">unique</span> about it?</h3>
                     </div>
-                    <div class="info-card p-8 rounded-lg">
-                        <h3 class="text-2xl font-semibold text-[#047857] mb-4">How can we help people?</h3>
-                        <p class="leading-relaxed text-gray-600">
-                            Growing up, we have seen countless cases of people going through an emotional turmoil. We realised there was such a huge gap between children who are able to talk in supportive spaces and children who had to grow up on their own. We are strong believers in childhood burdens/trauma unfolding and distressing in adulthood is one of the major reasons why some patterns of individuals are so rigid to changes, proving to be harmful. But these patterns can be replaced with healthier outlooks, behaviors, thought processes. We personally have worked with and assisted individuals going through issues that are deeply rooted in their upbringing, culture, environmental conditions and also peers they have been with. We believe that talking about the issues from every angle gives us depth and clarity and also a sense of relief that at least it is out there. You'd realise you are really not the only one.
-                        </p>
+                    <p class="text-[var(--ink-soft)] leading-relaxed text-lg">
+                        Everything you bring contributes to the picture — work, family, sleep, the small things. This is an exploration space to map your thoughts and actions without judgement, find a pattern, and figure out what works for <em class="display-i">your</em> shape of life.
+                    </p>
+                </div>
+
+                <div class="info-card p-8 md:p-10">
+                    <div class="flex items-start gap-5 mb-5">
+                        <span class="num-tag">04</span>
+                        <h3 class="display text-3xl md:text-[2rem] text-[var(--ink)] leading-tight pt-1.5">How can <span class="display-i">we help?</span></h3>
+                    </div>
+                    <div class="text-[var(--ink-soft)] leading-relaxed text-lg space-y-4">
+                        <p>Growing up, we saw the gap between children who got to talk in supportive spaces and those who had to grow up alone. We believe childhood weight unfolds in adulthood — and that those rigid patterns can be replaced with kinder ones.</p>
+                        <p>We've worked with people whose struggles are rooted in upbringing, culture, environment, and the people around them. We believe talking about it from every angle gives depth, clarity, and the relief of <em class="display-i">at least it's out there.</em></p>
+                        <p class="display-i text-2xl text-[var(--ink)] pt-2">You'd realise — you really aren't the only one.</p>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
 
-    <!-- Footer -->
-    <footer class="bg-[#3D405B] text-white/80">
-        <div class="container mx-auto px-6 lg:px-8 py-10">
-            <div class="flex justify-center items-center">
-                <p class="text-sm text-white/60">&copy; 2024 Nayrah Health. All Rights Reserved.</p>
+            <div class="mt-16 text-center">
+                <p class="display-i text-2xl text-[var(--ink-soft)] mb-6">when you're ready —</p>
+                <a href="https://calendly.com/nayrahhealth/new-meeting?month=2025-12" target="_blank" class="btn-primary">
+                    Book your first session — free
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
             </div>
         </div>
-    </footer>
+    </section>
+</main>
+
+<footer class="pt-16 pb-10">
+    <div class="container mx-auto px-6 lg:px-10 max-w-7xl">
+        <div class="pt-8 border-t border-[var(--ink)]/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-[var(--ink-mute)]">
+            <p>&copy; 2026 Nayrah Health. all rights reserved.</p>
+            <p class="display-i text-base text-[var(--ink-soft)]">a circle, not a spiral.</p>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
