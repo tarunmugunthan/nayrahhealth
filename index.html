@@ -263,8 +263,9 @@
             </div>
 
             <div class="flex items-center gap-3">
-                <a href="https://calendly.com/nayrahhealth/new-meeting?month=2025-12" target="_blank" class="hidden md:inline-flex items-center gap-2 bg-[var(--green)] text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-[var(--green-deep)] transition-colors">
-                    Book a session
+                <a href="https://calendly.com/nayrahhealth/new-meeting?month=2025-12" target="_blank" class="inline-flex items-center gap-2 bg-[var(--green)] text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-[var(--green-deep)] transition-colors">
+                    <span class="hidden md:inline">Book a session</span>
+                    <span class="md:hidden">Book</span>
                     <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </a>
                 <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.add('open')" aria-label="Menu">
@@ -294,7 +295,7 @@
 <section class="hero-wrap">
 
     <div class="container mx-auto px-6 lg:px-10 max-w-7xl pt-32 pb-20 md:pt-40 md:pb-28">
-        <div class="max-w-3xl">
+        <div class="max-w-3xl mx-auto text-center">
             <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur border border-white/15 text-white/90 text-xs tracking-wide mb-7">
                 <span class="w-1.5 h-1.5 rounded-full bg-[var(--butter)]"></span>
                 Now accepting online sessions
@@ -305,11 +306,11 @@
                 what feels like you.
             </h1>
 
-            <p class="text-lg md:text-xl text-white/80 max-w-xl leading-relaxed mb-9">
+            <p class="text-lg md:text-xl text-white/80 max-w-xl mx-auto leading-relaxed mb-9">
                 Therapy at Nayrah isn't about labels or fixing what's broken. It's a slow, honest conversation — one where you set the pace, and we walk beside you.
             </p>
 
-            <div class="flex flex-wrap items-center gap-3">
+            <div class="flex flex-wrap items-center justify-center gap-3">
                 <a href="https://calendly.com/nayrahhealth/new-meeting?month=2025-12" target="_blank" class="inline-flex items-center gap-2 bg-white text-[var(--green-deep)] px-7 py-3.5 rounded-full font-medium hover:bg-[var(--butter)] transition-colors shadow-xl">
                     Book your first session — free
                     <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -572,7 +573,7 @@
 
         <div class="space-y-3">
             <template x-for="(item, idx) in [
-                {q: 'How do I schedule a session?', a: 'Hit \&quot;Book a session\&quot; up top and pick a time that works on Calendly. Or email us through the form — we usually reply within a day.'},
+                {q: 'How do I schedule a session?', a: 'Hit \&quot;Book a session\&quot; up top and pick a time that works on Calendly. Or email us at <a href=\&quot;mailto:nayrahhealth@gmail.com\&quot; class=\&quot;text-[var(--green)] underline underline-offset-4 decoration-[var(--green)]/30 hover:decoration-[var(--green)]\&quot;>nayrahhealth@gmail.com</a> — we usually reply within a day.'},
                 {q: 'What happens in the first session?', a: 'We listen. You tell us what brought you here, what is weighing on you, confusion, your hopes. We use a client-centred approach where we ask you gentle questions to understand the shape of things, then talk together about where to start.'},
                 {q: 'How often will we meet?', a: 'Most people start weekly to build momentum, but it\&#39;s flexible. Bi-weekly, monthly, or pause-and-return all work. We\&#39;ll figure out what fits your life as we go.'},
                 {q: 'What does it cost — and how do I pay?', a: 'Your first session is free. After that, fees and UPI details are shared over WhatsApp so we can match the right rate to your situation.'},
@@ -590,7 +591,7 @@
             </template>
         </div>
 
-        <p class="text-center mt-10 text-[var(--ink-mute)]">Still wondering something? <a href="mailto:hello@nayrah.health" class="text-[var(--green)] underline underline-offset-4 decoration-[var(--green)]/30 hover:decoration-[var(--green)]">drop us a line.</a></p>
+        <p class="text-center mt-10 text-[var(--ink-mute)]">Still wondering something? <a href="mailto:nayrahhealth@gmail.com" class="text-[var(--green)] underline underline-offset-4 decoration-[var(--green)]/30 hover:decoration-[var(--green)]">drop us a line.</a></p>
     </div>
 </section>
 
@@ -606,7 +607,7 @@
                     Book your free session
                     <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </a>
-                <a href="mailto:hello@nayrah.health" class="inline-flex items-center gap-2 text-white/90 hover:text-white py-4 px-6 rounded-full border border-white/30 hover:border-white/60 transition-colors">
+                <a href="mailto:nayrahhealth@gmail.com" class="inline-flex items-center gap-2 text-white/90 hover:text-white py-4 px-6 rounded-full border border-white/30 hover:border-white/60 transition-colors">
                     Or send us a note
                 </a>
             </div>
@@ -620,9 +621,7 @@
         <div class="grid md:grid-cols-12 gap-10 mb-12">
             <div class="md:col-span-5">
                 <div class="flex items-center gap-2.5 mb-4">
-                    <div class="w-9 h-9 rounded-full bg-[var(--green)] flex items-center justify-center text-white">
-                        <span class="display-i text-xl leading-none">N</span>
-                    </div>
+                    <img src="nayrahlogonew.png" alt="Nayrah" class="h-9 w-9 rounded-full object-cover">
                     <div class="display text-2xl text-[var(--ink)]">Nayrah</div>
                 </div>
                 <p class="text-[var(--ink-soft)] max-w-sm">a therapy service built around connection, clarity, and going at your own pace.</p>
@@ -641,26 +640,19 @@
             <div class="md:col-span-4">
                 <div class="text-xs uppercase tracking-wider text-[var(--ink-mute)] mb-4">say hello</div>
                 <ul class="space-y-2.5 text-[var(--ink-soft)] mb-5">
-                    <li><a href="mailto:hello@nayrah.health" class="hover:text-[var(--green)] transition-colors">hello@nayrah.health</a></li>
+                    <li><a href="mailto:nayrahhealth@gmail.com" class="hover:text-[var(--green)] transition-colors">nayrahhealth@gmail.com</a></li>
                     <li><a href="https://calendly.com/nayrahhealth/new-meeting?month=2025-12" target="_blank" class="hover:text-[var(--green)] transition-colors">book a session &rarr;</a></li>
                 </ul>
                 <div class="flex items-center gap-2.5">
-                    <a href="https://instagram.com/nayrahhealth" target="_blank" aria-label="Instagram" class="w-10 h-10 rounded-full border border-[var(--ink)]/12 flex items-center justify-center text-[var(--ink-soft)] hover:text-white hover:bg-[var(--green)] hover:border-transparent transition-colors">
+                    <a href="https://www.instagram.com/nayrahhealth?igsh=eDg0dmt0ZGxoM2Np&utm_source=qr" target="_blank" aria-label="Instagram" class="w-10 h-10 rounded-full border border-[var(--ink)]/12 flex items-center justify-center text-[var(--ink-soft)] hover:text-white hover:bg-[var(--green)] hover:border-transparent transition-colors">
                         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
-                    </a>
-                    <a href="https://twitter.com/nayrahhealth" target="_blank" aria-label="X (Twitter)" class="w-10 h-10 rounded-full border border-[var(--ink)]/12 flex items-center justify-center text-[var(--ink-soft)] hover:text-white hover:bg-[var(--green)] hover:border-transparent transition-colors">
-                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    </a>
-                    <a href="https://linkedin.com/company/nayrahhealth" target="_blank" aria-label="LinkedIn" class="w-10 h-10 rounded-full border border-[var(--ink)]/12 flex items-center justify-center text-[var(--ink-soft)] hover:text-white hover:bg-[var(--green)] hover:border-transparent transition-colors">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.86 3.37-1.86 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
                     </a>
                 </div>
             </div>
         </div>
 
-        <div class="pt-8 border-t border-[var(--ink)]/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-[var(--ink-mute)]">
+        <div class="pt-8 border-t border-[var(--ink)]/10 flex items-center justify-center gap-3 text-sm text-[var(--ink-mute)]">
             <p>&copy; 2026 Nayrah Health. all rights reserved.</p>
-            <p class="display-i text-base text-[var(--ink-soft)]">a circle, not a spiral.</p>
         </div>
     </div>
 </footer>
