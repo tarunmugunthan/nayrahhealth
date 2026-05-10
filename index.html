@@ -85,8 +85,12 @@
             background-size: cover;
             background-position: center;
             height: calc(100vh - 72px);
+            height: calc(100dvh - 72px);
             display: flex;
-            align-items: center;
+            align-items: flex-end;
+        }
+        @media (min-width: 769px) {
+            .hero-wrap { align-items: center; }
         }
         .hero-wrap::before {
             content: "";
@@ -287,24 +291,24 @@
 <!-- TOP: hero -->
 <section class="hero-wrap">
 
-    <div class="container mx-auto px-6 lg:px-10 max-w-7xl pt-32 pb-20 md:pt-40 md:pb-28">
+    <div class="container mx-auto px-6 lg:px-10 max-w-7xl pt-16 pb-10 md:pt-40 md:pb-28">
         <div class="max-w-3xl mx-auto text-center">
-            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur border border-white/15 text-white/90 text-xs tracking-wide mb-7">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur border border-white/15 text-white/90 text-xs tracking-wide mb-5 md:mb-7">
                 <span class="w-1.5 h-1.5 rounded-full bg-[var(--butter)]"></span>
                 Now accepting online sessions
             </span>
 
-            <h1 class="display text-4xl md:text-5xl lg:text-6xl text-white tracking-tight mb-6" style="line-height: 1.15;">
+            <h1 class="display text-3xl md:text-5xl lg:text-6xl text-white tracking-tight mb-4 md:mb-6" style="line-height: 1.15;">
                 A quiet space to figure out<br>
                 what feels like you.
             </h1>
 
-            <p class="text-lg md:text-xl text-white/80 max-w-xl mx-auto leading-relaxed mb-9">
+            <p class="text-base md:text-xl text-white/80 max-w-xl mx-auto leading-relaxed mb-6 md:mb-9">
                 Therapy at Nayrah isn't about labels or fixing what's broken. It's a slow, honest conversation — one where you set the pace, and we walk beside you.
             </p>
 
             <div class="flex flex-wrap items-center justify-center gap-3">
-                <a href="https://calendly.com/nayrahhealth/new-meeting?month=2025-12" target="_blank" class="inline-flex items-center gap-2 bg-white text-[var(--green-deep)] px-7 py-3.5 rounded-full font-medium hover:bg-[var(--butter)] transition-colors shadow-xl">
+                <a href="https://calendly.com/nayrahhealth/new-meeting?month=2025-12" target="_blank" class="inline-flex items-center gap-2 bg-white text-[var(--green-deep)] px-5 py-3 md:px-7 md:py-3.5 rounded-full font-medium text-sm md:text-base hover:bg-[var(--butter)] transition-colors shadow-xl">
                     Book your first therapy session — Free
                     <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </a>
